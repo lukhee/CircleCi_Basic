@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo "hello world" > ~/output.txt
+      - run: echo hello world $Author > ~/output.txt
       - persist_to_workspace:
           root: ~/
           paths:
@@ -24,4 +24,6 @@ workflows:
   say-hello-workflow:
     jobs:
       - save_hello_world_output
-      - print_output_file
+      - print_output_file:
+          requires:
+            - save_hello_world_output
