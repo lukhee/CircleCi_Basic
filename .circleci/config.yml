@@ -1,6 +1,27 @@
 version: 2.1
 
+commands:
+  printID:
+    description: "print_pipeline_id"
+    parameters:
+      to:
+        type: string
+        default: "Hello World"
+    steps:
+      - run: 
+        name: Print Command ID and parameter
+        command: |
+          echo $CIRCLE_WORKFLOW_ID
+          echo << parameter.to >> from parameter
+
 jobs:
+  Print_From_command:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - printID
+        to: $CIRCLE_WORKFLOW_ID
+
   save_hello_world_output:
     docker:
       - image: circleci/node:13.8.0
@@ -24,6 +45,7 @@ workflows:
   say-hello-workflow:
     jobs:
       - save_hello_world_output
+      - Print_From_command
       - print_output_file:
           requires:
             - save_hello_world_output
