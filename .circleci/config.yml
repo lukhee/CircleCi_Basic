@@ -19,7 +19,7 @@ jobs:
       - run:
           name: "Save Author's name inside file /output.txt"
           command: |
-            echo Hello, World! from $Author >  ~/output.txt
+            echo "Hello, World! from Author" >  ~/output.txt
       - persist_to_workspace:
           root: ~/    # relative path to our working directory
           paths:    
