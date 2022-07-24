@@ -41,11 +41,9 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: exit 1
-      - run: exit 0
-      - run: exit 0
-      - run: exit 0
-      - run: exit 0
+      - run: 
+          name: exit with 1
+          command: exit 1
 
       - run:
           name: Echo Failed Test
