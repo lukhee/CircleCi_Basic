@@ -11,7 +11,34 @@ jobs:
           command: |
             echo Hello, World! from $Author
 
+  save_hello_world_output:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: "Save Author's name inside file /output.txt"
+          command: |
+            echo Hello, World! from $Author >  ~/output.txt
+      - persist_to_workspace:
+          root: ~/    # relative path to our working directory
+          paths:    
+            - output.txt
+
+  print_output_file:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/ 
+      - run:
+        name: "Print Author's name from Saved file /output.txt"
+        command: cat ~/output.txt
+
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - save_hello_world_output
+      - print_output_file
