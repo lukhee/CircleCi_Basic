@@ -15,7 +15,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_id:
-          to: << pipeline.id >>
+          id: << pipeline.id >>
 
   save_hello_world_output:
     docker:
