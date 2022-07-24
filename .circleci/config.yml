@@ -4,11 +4,7 @@ commands:
   printID:
     description: "print_pipeline_id"
     steps:
-      - run: 
-          name: Print Command ID and parameter
-          command: |
-            echo ${CIRCLE_WORKFLOW_ID}
-            echo << parameter.to >> from parameter
+      - run: echo ${CIRCLE_WORKFLOW_ID}
 
 jobs:
   Print_From_command:
@@ -16,7 +12,6 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - printID
-          # to: "Value here please"
 
   save_hello_world_output:
     docker:
