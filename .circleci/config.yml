@@ -4,9 +4,8 @@ commands:
   print_id:
     description: "print_pipeline_id"
     parameters: 
-      to: 
+      id: 
         type: string
-        default: "Hello word"
     steps:
       - run: echo << parameters.to >>
 
@@ -16,7 +15,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_id:
-          to: << CIRCLE_WORKFLOW_ID >>
+          to: << pipeline.id >>
 
   save_hello_world_output:
     docker:
