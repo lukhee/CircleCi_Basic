@@ -37,6 +37,19 @@ jobs:
           at: ~/
       - run: cat ~/output.txt
 
+  run_fail_job:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: |
+          return 1
+
+      - run:
+          name: Echo Failed Test
+          command: echo "failed previous step"
+          when: on_fail
+          
+
 
 workflows:
   say-hello-workflow:
