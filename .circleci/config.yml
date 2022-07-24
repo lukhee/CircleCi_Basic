@@ -14,7 +14,7 @@ version: 2.1
 #       - printID
 
 commands:
-  printID:
+  print_id:
     description: "print_pipeline_id"
     steps:
       - run: echo ${CIRCLE_WORKFLOW_ID}
@@ -24,7 +24,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - printID
+      - print_id
 
   save_hello_world_output:
     docker:
