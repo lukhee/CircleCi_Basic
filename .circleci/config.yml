@@ -29,7 +29,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - print_id
+      - print_id:
           to: "balogun lukman"
 
   save_hello_world_output:
