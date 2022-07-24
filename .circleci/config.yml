@@ -7,9 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: |
-            echo Hello, World! from $Author
+        name: "Say hello"
+        command: |
+          echo Hello, World! from $Author
 
   save_hello_world_output:
     docker:
@@ -17,13 +17,13 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Save Author's name inside file /output.txt"
-          command: |
-            echo "Hello, World! from Author" >  ~/output.txt
+        name: "Save Author's name inside file /output.txt"
+        command: |
+          echo "Hello, World! from Author" >  ~/output.txt
       - persist_to_workspace:
-          root: ~/    # relative path to our working directory
-          paths:    
-            - output.txt
+        root: ~/    # relative path to our working directory
+        paths:    
+          - output.txt
 
   print_output_file:
     docker:
