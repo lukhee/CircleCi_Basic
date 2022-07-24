@@ -42,7 +42,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: |
-          return 1
+          return 0
 
       - run:
           name: Echo Failed Test
