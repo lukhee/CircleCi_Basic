@@ -3,13 +3,13 @@ version: 2.1
 commands:
   printID:
     description: "print_pipeline_id"
-    parameters:
-      to:
-        type: string
-        default: "Hello World"
     steps:
-      - run: echo << parameter.to >> from parameter
-          
+      - run: 
+          name: Print Command ID and parameter
+          command: |
+            echo ${CIRCLE_WORKFLOW_ID}
+            echo << parameter.to >> from parameter
+
 jobs:
   Print_From_command:
     docker:
