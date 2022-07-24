@@ -16,8 +16,13 @@ version: 2.1
 commands:
   print_id:
     description: "print_pipeline_id"
+    parameter: 
+      to: 
+        type: string
+        defaut: "Hello word"
     steps:
-      - run: echo ${CIRCLE_WORKFLOW_ID}
+      # - run: echo ${CIRCLE_WORKFLOW_ID}
+      - run: echo << parameter.to >>
 
 jobs:
   my_command:
@@ -25,6 +30,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_id
+          to : "balogun lukman"
 
   save_hello_world_output:
     docker:
