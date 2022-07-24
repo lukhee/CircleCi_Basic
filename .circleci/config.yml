@@ -16,7 +16,7 @@ version: 2.1
 commands:
   print_id:
     description: "print_pipeline_id"
-    parameter: 
+    parameters: 
       to: 
         type: string
         defaut: "Hello word"
