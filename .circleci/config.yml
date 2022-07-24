@@ -8,11 +8,8 @@ commands:
         type: string
         default: "Hello World"
     steps:
-      - run: 
-        name: Print Command ID and parameter
-        command: |
-          echo << parameter.to >> from parameter
-
+      - run: echo << parameter.to >> from parameter
+          
 jobs:
   Print_From_command:
     docker:
