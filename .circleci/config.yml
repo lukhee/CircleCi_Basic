@@ -20,7 +20,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - printID
-          to: $CIRCLE_WORKFLOW_ID
+          to: "Value here please"
 
   save_hello_world_output:
     docker:
