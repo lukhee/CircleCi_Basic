@@ -21,11 +21,7 @@ commands:
         type: string
         default: "Hello word"
     steps:
-      # - run: echo ${CIRCLE_WORKFLOW_ID}
-      - run: 
-          cammands: |
-            echo << parameters.to >>
-            echo ${CIRCLE_WORKFLOW_ID}
+      - run: echo ${CIRCLE_WORKFLOW_ID}
 
 jobs:
   my_command:
@@ -33,7 +29,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_id:
-          to: "balogun lukman"
+          to: ${CIRCLE_WORKFLOW_ID}
 
   save_hello_world_output:
     docker:
